@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Dashboard aide à la décision / Produits</title>
+  </head>
+  <body>
+    <!-- top navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebar"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+        </button>
+        <a
+          class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+          href="#"
+          >Dashboard aide à la décision / Produits</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#topNavBar"
+          aria-controls="topNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <form class="d-flex ms-auto my-3 my-lg-0">
+            <div class="input-group">
+
+
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle ms-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-fill"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="moncompte.html">Mon compte</a></li>
+                <li>
+                  <a class="dropdown-item" href="login.html">Se déconnecter</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- top navigation bar -->
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-start sidebar-nav bg-dark"
+      tabindex="-1"
+      id="sidebar"
+    >
+      <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                MENU
+              </div>
+            </li>
+            <li>
+              <a href="index.html" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Page d'accueil</span>
+              </a>
+            </li>
+            <li class="me-2"><hr class="dropdown-divider bg-light" /></li>
+            <li>
+              <a href="ventes.html" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-receipt"></i></span>
+                <span>Ventes</span>
+              </a>
+            </li>
+            <li class="me-2"><hr class="dropdown-divider bg-light" /></li>
+            <li>
+              <a href="produits.html" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-list-ul"></i></span>
+                <span>Produits</span>
+              </a>
+            </li>
+            <li class="me-2"><hr class="dropdown-divider bg-light" /></li>
+            <li>
+              <a href="probabilites.html" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-clipboard"></i></span>
+                <span>Probabilités</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <main class="mt-5 pt-3">
+      <div class="row">
+        <div class="col-md-2 mb-1">
+        </div>
+        <div class="col-md-8 mb-4">
+          <h4><center>Sélectionnez les produits à afficher</center></h4>
+          </div>
+          <div class="col-md-2 mb-1">
+          </div>
+          <div class="row">
+            <center>
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="4784, 5896.28, 7412.21, 8787.61, 8751.73, 6464.38, 7071.35, 6042.79, 5749.77, 10055.37, 9044.75, 12680.59" id="AAA Batteries (4-pack)" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="AAA Batteries (4-pack)">
+              AAA Batteries
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="5468.16, 6662.4, 8509.44, 10832.64, 9154.56, 8048.64, 7952.64, 7019.52, 6800.64, 11289.6, 10080, 14300.16" id="AA Batteries (4-pack)" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="AA Batteries (4-pack)">
+              AA Batteries
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="15379.65, 19765.3, 23230.8, 27114.55, 24712.6, 20016.25, 22095.55, 17470.9, 19048.3, 31870.65, 26959.2, 38837.5" id="USB-C Charging Cable" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="USB-C Charging Cable">
+              USB-C Charging Cable
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="17267.25,22410.05,28001.35,35476.35,31021.25,25220.65,27074.45,21572.85,21408,38451.4,33039.5,46150.65" id="Lightning Charging Cable" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Lightning Charging Cable">
+              Lightning Charging Cable
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="66193.38, 84091.59, 119788.02, 128687.13, 117588.24, 98290.17, 105989.4, 88091.19, 82791.72, 146485.35, 125187.48, 182381.76" id="Bose SoundSport Headphones" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Bose SoundSport Headphones">
+              Bose SoundSport Headphones
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="13009.15,15335.21,19951.36,24759.35,22493.24,17673.26,18764.35,15479.09,15598.99,27265.26,23188.66,32960.51" id="Wired Headphones" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Wired Headphones">
+              Wired Headphones
+            </label>
+          </center>
+          </div>      
+            <div class="row">
+              <center>
+              <input class="form-check-input d-inline-flex p-2" type="checkbox" value="122700, 151800, 198300, 227850, 204750, 175050, 183000, 151350, 145350, 250650, 226950, 311400" id="Apple Airpods Headphones" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Apple Airpods Headphones">
+              Apple Airpods Headphones
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="23977.82, 27057.54, 35856.74, 43226.07, 37506.59, 35416.78, 35966.73, 28707.39, 30467.23, 47185.71, 46195.8, 62584.31" id="20in Monitor" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="20in Monitor">
+              20in Monitor
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="63295.78, 71245.25, 91193.92, 110392.64, 103343.11, 85044.33, 91043.93, 73645.09, 72445.17, 118642.09, 107842.81, 144290.38" id="27in FHD Monitor" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="27in FHD Monitor">
+              27in FHD Monitor
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="119316.86, 158835.82, 198354.78, 248513.46, 206714.56, 172895.45, 175555.38, 144396.2, 144016.21, 254973.29, 209374.49, 322611.51" id="34in Ultrawide Monitor" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="34in Ultrawide Monitor">
+              34in Ultrawide Monitor
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="122066.87, 166525.73, 186805.21, 220734.34, 211374.58, 175885.49, 188365.17, 171595.6, 148586.19, 281962.77, 224244.25, 336951.36" id="27in 4K Gaming Monitor" onchange="addRemoveData(this)"> 
+            <label class="form-check-label d-inline-flex p-2" for="27in 4K Gaming Monitor">
+              27in 4K Gaming Monitor
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="73200, 93900, 108600, 138000, 119700, 110100, 119700, 99300, 88200, 157200, 138000, 199800" id="Flatscreen TV" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Flatscreen TV">
+              Flatscreen TV
+            </label>
+          </center>
+            </div>
+            
+            <div class="row">
+              <center>
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="266700, 307300, 376600, 485100, 448000, 373100, 351400, 307300, 277900, 501200, 465500, 634200" id="iPhone" onchange="addRemoveData(this)" checked>
+            <label class="form-check-label d-inline-flex p-2" for="iPhone">
+              iPhone
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="191400, 228600, 277800, 348000, 288000, 234600, 246600, 216600, 204600, 358200, 295800, 429000" id="Google Phone" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Google Phone">
+              Google Phone
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="50400,51600,69600,88000,74000,62000,58400,57200,50400,81200,70800,113600" id="Vareebadd Phone" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Vareebadd Phone">
+              Vareebadd Phone
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="399500,469200,644300,771800,790500,605200,625600,508300,489600,892500,748000,1093100" id="Macbook Pro Laptop" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="Macbook Pro Laptop">
+              Macbook Pro Laptop
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="218997.81,274997.25,344996.55,389996.1,370996.29,313996.86,318996.81,273997.26,248997.51,460995.39,373996.26,538994.61" id="ThinkPad Laptop" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="ThinkPad Laptop">
+              ThinkPad Laptop
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="25200,24000,38400,36600,38400,33000,31200,28800,27600,36600,31800,48000" id="LG Washing Machine" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="LG Washing Machine">
+              LG Washing Machine
+            </label>
+            
+            <input class="form-check-input d-inline-flex p-2" type="checkbox" value="23400, 22800, 29400, 46800, 45600, 25800, 33000, 27600, 18000, 30000, 33600, 51600" id="LG Dryer" onchange="addRemoveData(this)">
+            <label class="form-check-label d-inline-flex p-2" for="LG Dryer">
+              LG Dryer
+            </label>
+            </center>
+          </div>
+        
+        </div>
+        <br><br>
+        <div class="row">
+        <div class="col-md-1 mb-1">
+        </div>
+        <div class="col-md-9 mb-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                CA par produit
+              </div>
+              <div class="card-body">
+                <canvas class="chartVentesProduits" width="800" height="400"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <div class="card">
+          <div class="card-header">
+            <span><i class="bi bi-table me-2"></i></span> Liste de nos produits
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table
+                id="example"
+                class="table table-striped data-table"
+                style="width: 100%"
+              >
+              <thead>
+                <tr>
+                  <th>ID Produit</th>
+                  <th>Nom Produit</th>
+                  <th>Prix unitaire</th>
+                  <th>Quantité vendue</th>
+                  <th>CA Total Réalisé</th>
+                  <th>% du CA Réalisé</th>
+                  <th>Voir détail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>1</td>
+                  <td>AAA Batteries (4-pack)</td>
+                  <td>2,99</td>
+                  <td>31017</td>
+                  <td>92740,83</td>
+                  <td>0,27%</td>
+                  <td><button type="submit" id="1" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>2</td>
+                  <td>AA Batteries (4-pack)</td>
+                  <td>3,84</td>
+                  <td>27635</td>
+                  <td>106118,4</td>
+                  <td>0,31%</td>
+                  <td><button type="submit" id="2" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>3</td>
+                  <td>20in Monitor</td>
+                  <td>109,99</td>
+                  <td>4129</td>
+                  <td>454148,71</td>
+                  <td>1,32%</td>
+                  <td><button type="submit" id="3" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>4</td>
+                  <td>27in 4K Gaming Monitor</td>
+                  <td>389,99</td>
+                  <td>6244</td>
+                  <td>2435097,56</td>
+                  <td>7,06%</td>
+                  <td><button type="submit" id="4" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>5</td>
+                  <td>Apple Airpods Headphones</td>
+                  <td>150</td>
+                  <td>15661</td>
+                  <td>2349150</td>
+                  <td>6,81%</td>
+                  <td><button type="submit" id="5" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>6</td>
+                  <td>27in FHD Monitor</td>
+                  <td>149,99</td>
+                  <td>7550</td>
+                  <td>1132424,5</td>
+                  <td>3,28%</td>
+                  <td><button type="submit" id="6" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>7</td>
+                  <td>34in Ultrawide Monitor</td>
+                  <td>379,99</td>
+                  <td>6199</td>
+                  <td>2355558,01</td>
+                  <td>6,83%</td>
+                  <td><button type="submit" id="7" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>8</td>
+                  <td>Bose SoundSport Headphones</td>
+                  <td>99,99</td>
+                  <td>13457</td>
+                  <td>1345565,43</td>
+                  <td>3,90%</td>
+                  <td><button type="submit" id="8" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>9</td>
+                  <td>Flatscreen TV</td>
+                  <td>300</td>
+                  <td>4819</td>
+                  <td>1445700</td>
+                  <td>4,19%</td>
+                  <td><button type="submit" id="9" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                  </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>10</td>
+                  <td>Google Phone</td>
+                  <td>600</td>
+                  <td>5532</td>
+                  <td>3319200</td>
+                  <td>9,62%</td>
+                  <td><button type="submit" id="10" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>11</td>
+                  <td>iPhone</td>
+                  <td>700</td>
+                  <td>6849</td>
+                  <td>4794300</td>
+                  <td>13,90%</td>
+                  <td><button type="submit" id="11" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>12</td>
+                  <td>LG Dryer</td>
+                  <td>600</td>
+                  <td>646</td>
+                  <td>387600</td>
+                  <td>1,12%</td>
+                  <td><button type="submit" id="12" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>13</td>
+                  <td>LG Washing Machine</td>
+                  <td>600</td>
+                  <td>646</td>
+                  <td>399600</td>
+                  <td>1,16%</td>
+                  <td><button type="submit" id="13" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>14</td>
+                  <td>Lightning Charging Cable</td>
+                  <td>14,95</td>
+                  <td>23217</td>
+                  <td>347094,15</td>
+                  <td>1,01%</td>
+                  <td><button type="submit" id="14" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>15</td>
+                  <td>Macbook Pro Laptop</td>
+                  <td>1700</td>
+                  <td>4728</td>
+                  <td>8037600</td>
+                  <td>23,30%</td>
+                  <td><button type="submit" id="15" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>16</td>
+                  <td>ThinkPad Laptop</td>
+                  <td>999,99</td>
+                  <td>4130</td>
+                  <td>4129958,7</td>
+                  <td>11,97%</td>
+                  <td><button type="submit" id="16" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>17</td>
+                  <td>USB-C Charging Cable</td>
+                  <td>11,95</td>
+                  <td>23975</td>
+                  <td>286501,25</td>
+                  <td>0,83%</td>
+                  <td><button type="submit" id="17" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>18</td>
+                  <td>Vareebadd Phone</td>
+                  <td>400</td>
+                  <td>2068</td>
+                  <td>827200</td>
+                  <td>2,40%</td>
+                  <td><button type="submit" id="18" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+                <tr>
+                  <form action="produit.html" method="GET">
+                  <td>19</td>
+                  <td>Wired Headphones</td>
+                  <td>11,99</td>
+                  <td>20557</td>
+                  <td>246478,43</td>
+                  <td>0,71%</td>
+                  <td><button type="submit" id="19" class="btn- btn-success" onclick="toProduitPage(this)">Détail</button></td>
+                </form>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </main>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap5.min.js"></script>
+    <script src="./js/scriptProduits.js"></script>
+    <script src="./js/scriptProduit.js"></script>
+  </body>
+</html>

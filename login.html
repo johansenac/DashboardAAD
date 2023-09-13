@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styleLogin.css">
+  <title>Sign Up Page</title>
+</head>
+<body>
+  <section class="sign-up">
+    <div class="bg-video">
+      <div class="content">
+        <h1>Dashboard<br/> Aide à la décision</h1>
+        <button class="btn" id="form-open-btn">Connexion</button>
+      </div>
+      <video src="assets/signup.mp4" autoplay loop muted></video>
+    </div>
+    <div class="sign-up-form">
+      <div id="formulaire-connexion">
+        <div class="input-wrap">
+          <label for="email">Adresse Mail</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+        <div class="input-wrap">
+          <label for="password">Mot de Passe</label>
+          <input type="password" name="password" id="password" required>
+        </div>
+        <button class="btn" id="bouton-connexion" onclick="checkID()">
+          Connexion
+        </button>
+        <div id="login-error-msg-holder">
+          <p id="login-error-msg">Identifiant <span id="error-msg-second-line">et/ou mot de passe incorrects</span></p>
+        </div>
+      </div>
+      <button class="close">
+        <span class="material-symbols-outlined">
+          close
+        </span>
+      </button>
+    </div>
+  </section>
+  <script src="js/login.js"></script>
+</body>
+</html>

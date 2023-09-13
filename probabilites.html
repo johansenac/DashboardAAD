@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Dashboard aide à la décision / Probabilités</title>
+  </head>
+  <body>
+    <!-- top navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebar"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+        </button>
+        <a
+          class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+          href="#"
+          >Dashboard aide à la décision / Probabilités</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#topNavBar"
+          aria-controls="topNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <form class="d-flex ms-auto my-3 my-lg-0">
+            <div class="input-group">
+
+
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle ms-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-fill"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="moncompte.html">Mon compte</a></li>
+                <li>
+                  <a class="dropdown-item" href="login.html">Se déconnecter</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- top navigation bar -->
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-start sidebar-nav bg-dark"
+      tabindex="-1"
+      id="sidebar"
+    >
+      <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                MENU
+              </div>
+            </li>
+            <li>
+              <a href="index.html" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Page d'accueil</span>
+              </a>
+            </li>
+            <li class="me-2"><hr class="dropdown-divider bg-light" /></li>
+            <li>
+              <a href="ventes.html" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-receipt"></i></span>
+                <span>Ventes</span>
+              </a>
+            </li>
+            <li class="me-2"><hr class="dropdown-divider bg-light" /></li>
+            <a href="produits.html" class="nav-link px-3 active">
+              <span class="me-2"><i class="bi bi-list-ul"></i></span>
+              <span>Produits</span>
+            </a>
+          </li>
+              <li class="me-2"><hr class="dropdown-divider bg-light" /></li>
+            
+                <a href="probabilites.html" class="nav-link px-3 active">
+                  <span class="me-2"><i class="bi bi-clipboard"></i></span>
+                  <span>Probabilités</span>
+                </a>
+              </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <main class="mt-5 pt-3">
+      <div class="row">
+        <div class="col-md-3 mb-1">
+        </div>
+          <div class="col-md-6 mb-4">
+                <center><h3>Taux d'achat groupé des produits entre eux</h3></center>
+            </div>
+            <div class="col-md-3 mb-1">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-2">
+          </div>
+            <div class="col-md-4 mb-2">
+              <select class="form-select" aria-label="Sélectionnez un produit" id="produits">
+                  <option selected>Sélectionnez un produit</option>
+                  <option value="wired_headphones">Wired Headphones</option>
+                  <option value="vareebadd_phone">Vareebadd Phone</option>
+                  <option value="usb_c_charging_cable">USB-C Charging Cable</option>
+                  <option value="thinkpad_laptop">ThinkPad Laptop</option>
+                  <option value="macbook_pro_laptop">Macbook Pro Laptop</option>
+                  <option value="lightning_charging_cable">Lightning Charging Cable</option>
+                  <option value="lg_washing_machine">LG Washing Machine</option>
+                  <option value="lg_dryer">LG Dryer</option>
+                  <option value="iphone">iPhone</option>
+                  <option value="google_phone">Google Phone</option>
+                  <option value="flatscreen_tv">Flatscreen TV</option>
+                  <option value="bose_soundsport_headphones">Bose SoundSport Headphones</option>
+                  <option value="apple_airpods_headphones">Apple Airpods Headphones</option>
+                  <option value="aaa_batteries">AAA Batteries (4-pack)</option>
+                  <option value="aa_batteries">AA Batteries (4-pack)</option>
+                  <option value="34in_ultrawide_monitor">34in Ultrawide Monitor</option>
+                  <option value="27in_fhd_monitor">27in FHD Monitor</option>
+                  <option value="27in_4k_gaming_monitor">27in 4K Gaming Monitor</option>
+                  <option value="20in_monitor">20in Monitor</option>
+              </select>
+              </div>
+              <div class="col-md-4 mb-2">
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 mb-1">
+          </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphwired_headphones">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé des Wired Headphones avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartwired_headphones" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphvareebadd_phone">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Vareebadd Phone avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartvareebadd_phone" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphusb_c_charging_cable">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un USB-C Charging Cable avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartusb_c_charging_cable" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphthinkpad_laptop">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Laptop Thinkpad avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartthinkpad_laptop" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphmacbook_pro_laptop">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Laptop Macbook Pro avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartmacbook_pro_laptop" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphlightning_charging_cable">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Lightning Charging Cable avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartlightning_charging_cable" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphlg_washing_machine">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'une LG Washing Machine avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartlg_washing_machine" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphlg_washing_machine">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'une LG Washing Machine avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartlg_washing_machine" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphlg_dryer">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un LG Dryer avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartlg_dryer" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphiphone">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un iPhone avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartiphone" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphgoogle_phone">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Google Phone avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartgoogle_phone" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphflatscreen_tv">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'une Flatscreen TV avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartflatscreen_tv" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphbose_soundsport_headphones">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé de Headphones Soundsport Bose avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartbose_soundsport_headphones" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphapple_airpods_headphones">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'Apple Airpods Headphones avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartapple_airpods_headphones" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphaaa_batteries">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé de Batteries AAA avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartaaa_batteries" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graphaa_batteries">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé de Batteries AA avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chartaa_batteries" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graph34in_ultrawide_monitor">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Monitor 34in Ultrawide avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chart34in_ultrawide_monitor" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graph27in_fhd_monitor">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Monitor 27in FHD avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chart27in_fhd_monitor" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graph27in_4k_gaming_monitor">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Monitor 27in 4k Gaming avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chart27in_4k_gaming_monitor" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="graph col-md-8 mb-4 hidden" id="graph20in_monitor">
+              <div class="card h-100">
+                <div class="card-header">
+                  <span class="me-2"><i class="bi bi-pie-chart-fill"></i></span>
+                  Taux d'achat groupé d'un Monitor 27in 4k Gaming avec d'autres produits
+                </div>
+                <div class="card-body">
+                  <canvas class="chart20in_monitor" width="2400" height="1200"></canvas>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-2 mb-1">
+              </div>
+          </div>
+      </div>
+        
+    </main>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap5.min.js"></script>
+    <script src="./js/scriptProbabilite.js"></script>
+  </body>
+</html>
